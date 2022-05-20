@@ -6,8 +6,7 @@ const Header = () => {
     <>
       <header className=' shadow-lg bg-blue-300'>
         <nav className=' container mx-auto p-5 flex  justify-between '>
-          <Link to="/klassPortal"></Link>
-          <h1 className=' text-2xl md:text-3xl font-bold italic'><span className=' text-blue-400'>klass</span>Portal</h1>
+          <Link className=' text-2xl md:text-3xl font-bold italic' to="/klassPortal"><span className=' text-blue-400'>klass</span>Portal</Link>
           {/* <div >
             <p>Home</p>
             <p>About</p>
