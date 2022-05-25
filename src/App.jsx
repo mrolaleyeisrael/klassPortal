@@ -24,7 +24,7 @@ function App() {
 
       <Routes>
         <Route exact path="/klassPortal" element={<Home registerModal = {registerModal} setRegisterModal= {setRegisterModal} loginModal ={loginModal} setLoginModal = {setLoginModal} />} />
-        <Route path='user' element ={<User />} >
+        <Route path='klassPortal/user' element ={<User />} >
           <Route  path="" element={<Dashboard />} />
           <Route  path="courses" element={<Course />} />
           <Route  path="profile" element={<Profile />} />

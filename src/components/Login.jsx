@@ -30,7 +30,7 @@ const Login = ({ setLoginModal, setRegisterModal }) => {
         const { displayName: name, email, photoURL: src, accessToken: token } = res.user;
         const user = { name, email, src, token };
         localStorage.setItem("user", JSON.stringify(user));
-        navigate('/user');
+        navigate('user');
       })
       .catch((error) => {
         setLoad(false)
@@ -49,7 +49,7 @@ const Login = ({ setLoginModal, setRegisterModal }) => {
         const user = { name, email, src, token };
         localStorage.setItem("user", JSON.stringify(user));
         // console.log(res);
-        navigate("/user");
+        navigate("user");
       })
       .catch((error) => {
         // console.log(error);
@@ -116,13 +116,17 @@ const Login = ({ setLoginModal, setRegisterModal }) => {
                   onClick={(e) => handleLogin(e)}
                   className=' bg-blue-300 hover:bg-blue-400 w-full rounded-full py-1 font-bold text-gray-900'
                 >{
-                  loading ? <SpinnerCircularFixed /> : "Sign In"
-                }
+                    loading ? <SpinnerCircularFixed /> : "Sign In"
+                  }
                 </button>
 
                 <p className=' text-center font-semibold text-gray-600'>OR</p>
 
-                <button type='submit' onClick={(e) => SignInWithGoogle(e)} className=' bg-red-300 hover:bg-red-400 w-full rounded-full py-1 font-bold text-gray-900'>Sign In with Google</button>
+                <button type='submit' onClick={(e) => SignInWithGoogle(e)} className=' bg-red-300 hover:bg-red-400 w-full rounded-full py-1 font-bold text-gray-900'>
+                  {
+                    loading ? <SpinnerCircularFixed /> : "Sign In with Google"
+                  }
+                </button>
 
               </div>
 
