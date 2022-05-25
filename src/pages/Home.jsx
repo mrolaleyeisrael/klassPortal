@@ -1,18 +1,24 @@
 import React from 'react'
+import { useState } from 'react'
 import student from '../assets/student1.png'
 import { FaRocketchat, FaRegEnvelopeOpen, FaGolfBall, FaApple, FaBook, FaTimes } from 'react-icons/fa'
-import Login from '../components/Login'
+import Header from '../components/Header'
 
-const Home = () => {
+import Login from '../components/Login'
+import Register from '../components/Register'
+
+const Home = ({ loginModal, setLoginModal, registerModal, setRegisterModal }) => {
+  // const [loginModalOpen, setLoginModalOpen] = useState(false);
+
   return (
     <>
-      <section className=' px-5 h-[86vh] flex justify-center items-center bg-blue-300 relative '>
+      <Header setLoginModal = {setLoginModal} />
+      <section className=' px-5 h-[86vh] flex justify-center items-center bg-gradient-to-br from-blue-200 to-green-200 '>
         <div className=' container mx-auto grid grid-cols-1 gap-5 md:place-items-center md:grid-cols-2 '>
           <div className=' text-center'>
-            <h1 className='  font-bold text-3xl md:text-5xl'>
-              Learn on your class schedule
+            <h1 className='  font-bold text-3xl md:text-6xl'>
+              <span className=' text-green-500'>Learn</span> on your <br /> class <span className=' text-blue-400'>schedule</span>
             </h1>
-            <p className=' mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident assumenda, laboriosam animi.</p>
           </div>
 
           <FaRocketchat className=' absolute text-pink-200 animate-spin text-3xl md:right-[40%] right-[10%] top-[15%] md:top-[10%]' />
@@ -30,7 +36,16 @@ const Home = () => {
           </div>
         </div>
 
-        <Login className ="hidden" />
+          { loginModal && (
+            <Login setLoginModal={setLoginModal} setRegisterModal = {setRegisterModal}  />
+
+          )}
+
+          {
+            registerModal && (
+              <Register setLoginModal={setLoginModal} setRegisterModal = {setRegisterModal} />
+            )
+          }
       </section>
     </>
   )
